@@ -9,6 +9,7 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          
           CODEBLOCK="\'\'\'"
           echo "$CODEBLOCK" > report.md
           nvidia-smi >> report.md
