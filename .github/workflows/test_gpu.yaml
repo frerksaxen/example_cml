@@ -4,7 +4,7 @@ jobs:
   nvidia-smi:
     runs-on: [self-hosted,cml,gpu]
     container:
-      image: fpii/cml:latest
+      image: tensorflow/tensorflow:latest-gpu
       options: --gpus all
     steps:
       - uses: actions/checkout@v2
