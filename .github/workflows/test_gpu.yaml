@@ -3,7 +3,10 @@ on: [push]
 jobs:
   run:
     runs-on: [self-hosted,cml,gpu]
-    steps:
+    container:
+          image: fpii/cml:latest
+          options: --gpus all
+      steps:
       - uses: actions/checkout@v2
       - name: Test GPU
         env:

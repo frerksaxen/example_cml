@@ -1,5 +1,6 @@
-FROM iterativeai/cml:latest-gpu
+FROM tensorflow/tensorflow:latest-gpu
 
-RUN python -m pip install --upgrade pip
-COPY ./requirements.txt /tmp/requirements.txt
+RUN python3 -m pip install --upgrade pip
+
+COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
