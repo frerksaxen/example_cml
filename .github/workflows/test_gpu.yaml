@@ -8,6 +8,7 @@ jobs:
       options: --gpus all
     steps:
       - uses: actions/checkout@v2
+      - uses: iterative/setup-cml@v1
       - name: Test GPU
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
