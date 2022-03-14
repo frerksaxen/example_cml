@@ -1,3 +1,15 @@
+numpy
+matplotlib
+tensorflow-gpu
+tensorflow_datasets
 setuptools
 sklearn
-matplotlib
+scikit-learn
+scikit-image
+pandas
+seaborn
+gputil
+opencv-python-headless
+debugpy
+tf2onnx
+onnxruntime

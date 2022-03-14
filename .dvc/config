@@ -1,4 +1,4 @@
 [core]
     remote = example_cml
 ['remote "example_cml"']
-    url = ssh://data@localhost/example_cml
+    url = ssh://data@localhost/home/data/example_cml
