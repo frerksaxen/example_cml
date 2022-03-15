@@ -1,7 +1,7 @@
 name: test_gpu
 on: [push]
 jobs:
-  nvidia-smi:
+  GPU-Test:
     runs-on: [self-hosted,cml,gpu]
     container:
       image: fsbaader/fpii-cml:latest
@@ -18,55 +18,7 @@ jobs:
           nvidia-smi >> report.md
           echo "$CODEBLOCK" >> report.md
 
-          cml-send-comment report.md
-  tf-gpu-test:
-    runs-on: [self-hosted,cml,gpu]
-    container:
-      image: fsbaader/fpii-cml:latest
-      options: --gpus all
-    steps:
-      - uses: actions/checkout@v2
-      - name: Test TF
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "## Test if tensorflow can access gpu" > report.md
-
-          pip install tensorflow-gpu
-          python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))" >> report.md
+          echo "## Show available gpus for tensorflow." >> report.md
+          python -c "import tensorflow as tf; print(f'List of available gpus: {tf.config.list_physical_devices('GPU')}')" >> report.md
 
           cml-send-comment report.md
-  tf-gpu-test2:
-    runs-on: [self-hosted,cml,gpu]
-    container:
-      image: fsbaader/fpii-cml:latest
-      options: --gpus all
-    steps:
-      - uses: actions/checkout@v2
-      - name: Test TF
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "## Test if tensorflow can access gpu" > report.md
-
-          pip install tensorflow-gpu
-          python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))" >> report.md
-
-          cml-send-comment report.md
-  tf-gpu-test3:
-    runs-on: [self-hosted,cml,gpu]
-    container:
-      image: fsbaader/fpii-cml:latest
-      options: --gpus all
-    steps:
-      - uses: actions/checkout@v2
-      - name: Test TF
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "## Test if tensorflow can access gpu" > report.md
-
-          pip install tensorflow-gpu
-          python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))" >> report.md
-
-          cml-send-comment report.md                    
