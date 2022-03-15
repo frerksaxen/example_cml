@@ -4,7 +4,7 @@ jobs:
   nvidia-smi:
     runs-on: [self-hosted,cml,gpu]
     container:
-      image: docker://iterativeai/cml:0-dvc2-base1-gpu
+      image: fsbaader/fpii-cml:latest
       options: --gpus all
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
   tf-gpu-test:
     runs-on: [self-hosted,cml,gpu]
     container:
-      image: docker://iterativeai/cml:0-dvc2-base1-gpu
+      image: fsbaader/fpii-cml:latest
       options: --gpus all
     steps:
       - uses: actions/checkout@v2
