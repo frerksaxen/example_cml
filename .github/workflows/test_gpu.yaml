@@ -12,9 +12,27 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo "## Test if nvidia is setup properly" > report.md
           CODEBLOCK="\`\`\`"
-          echo "$CODEBLOCK" > report.md
+          echo "$CODEBLOCK" >> report.md
           nvidia-smi >> report.md
           echo "$CODEBLOCK" >> report.md
-          
+
+          cml-send-comment report.md
+  tf-gpu-test:
+    runs-on: [self-hosted,cml,gpu]
+    container:
+      image: docker://iterativeai/cml:0-dvc2-base1-gpu
+      options: --gpus all
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test TF
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "## Test if tensorflow can access gpu" > report.md
+
+          pip install tensorflow-gpu
+          python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))" >> report.md
+
           cml-send-comment report.md
