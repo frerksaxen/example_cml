@@ -19,6 +19,6 @@ jobs:
           echo "$CODEBLOCK" >> report.md
 
           echo "## Show available gpus for tensorflow." >> report.md
-          python -c "import tensorflow as tf; print(f'List of available gpus: {tf.config.list_physical_devices('GPU')}')" >> report.md
+          python -c "import tensorflow as tf; print('List of available gpus: {}').format(tf.config.list_physical_devices('GPU'))" >> report.md
 
           cml-send-comment report.md
