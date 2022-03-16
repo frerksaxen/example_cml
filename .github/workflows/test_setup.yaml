@@ -25,7 +25,7 @@ jobs:
   DVC-Test:
     runs-on: [self-hosted,cml,gpu]
     container:
-      image: fsbaaer/fpii-cml:latest
+      image: fsbaader/fpii-cml:latest
       options: --gpus all
     steps:
       - uses: actions/checkout@v2
