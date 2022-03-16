@@ -22,3 +22,17 @@ jobs:
           python -c "import tensorflow as tf; print('List of available gpus: {}'.format(tf.config.list_physical_devices('GPU')))" >> report.md
 
           cml-send-comment report.md
+  DVC-Test:
+    runs-on: [self-hosted,cml,gpu]
+    container:
+      image: fsbaaer/fpii-cml:latest
+      options: --gpus all
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test DVC
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SSH_KEYFILE: ${{ secrets.SSH_DVC_KEY}}
+        run: |
+          dvc pull > report.md
+          cml-send-comment report.md

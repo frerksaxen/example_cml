@@ -18,8 +18,8 @@ clf.fit(X_train, y_train)
 
 acc = clf.score(X_test, y_test)
 print(acc)
-with open("metrics.txt", "w") as outfile:
-    outfile.write("Accuracy: " + str(acc) + "\n")
+with open("metrics.json", "w") as outfile:
+    outfile.write(json.dumps( {"Accuracy": str(acc)}))
 
 # Plot it
 disp = plot_confusion_matrix(clf, X_test, y_test, normalize="true", cmap=plt.cm.Blues)
