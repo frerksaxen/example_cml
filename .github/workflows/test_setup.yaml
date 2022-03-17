@@ -26,13 +26,15 @@ jobs:
     runs-on: [self-hosted,cml,gpu]
     container:
       image: fsbaader/fpii-cml:latest
-      options: --gpus all
+      options: --gpus all -v /mnt/c/Users/Saxen/dvcdata:/home/runner/dvcdata
     steps:
       - uses: actions/checkout@v2
-      - name: Test DVC
+      - name: Setup DVC local
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SSH_KEYFILE: ${{ secrets.SSH_DVC_KEY}}
         run: |
+          echo "['remote \"local_remote\"']" > .dvc/config.local
+          echo "    url = /home/runner/dvcdata" >> .dvc/config.local
+
           dvc pull > report.md
           cml-send-comment report.md
