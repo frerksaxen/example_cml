@@ -11,9 +11,9 @@ X, y = make_classification(n_samples=1000, random_state=seed)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=seed)
 
 # Save it
-if not os.path.isdir("data"):
-    os.mkdir("data")
-np.savetxt("data/train_features.csv", X_train)
-np.savetxt("data/test_features.csv", X_test)
-np.savetxt("data/train_labels.csv", y_train)
-np.savetxt("data/test_labels.csv", y_test)
+if not os.path.isdir("dataset"):
+    os.mkdir("dataset")
+np.savetxt("dataset/train_features.csv", X_train)
+np.savetxt("dataset/test_features.csv", X_test)
+np.savetxt("dataset/train_labels.csv", y_train)
+np.savetxt("dataset/test_labels.csv", y_test)

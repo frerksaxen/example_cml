@@ -3,5 +3,3 @@
 ['remote "example_cml"']
     url = ssh://data@localhost/home/data/example_cml
     keyfile = data_key
-['remote "local_remote"']
-    url = $HOME/dvcdata

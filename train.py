@@ -5,11 +5,11 @@ import json
 import os
 import numpy as np
 
-# Read in data
-X_train = np.genfromtxt("data/train_features.csv")
-y_train = np.genfromtxt("data/train_labels.csv")
-X_test = np.genfromtxt("data/test_features.csv")
-y_test = np.genfromtxt("data/test_labels.csv")
+# Read in dataset
+X_train = np.genfromtxt("dataset/train_features.csv")
+y_train = np.genfromtxt("dataset/train_labels.csv")
+X_test = np.genfromtxt("dataset/test_features.csv")
+y_test = np.genfromtxt("dataset/test_labels.csv")
 
 # Fit a model
 depth = 2
