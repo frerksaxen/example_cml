@@ -64,6 +64,11 @@ RUN curl --location https://apt.releases.hashicorp.com/gpg | sudo apt-key add - 
 #  && apt-get clean \
 #  && rm --recursive --force /var/lib/apt/lists/*
 
+RUN apt-get update \
+ && apt-get install --no-install-recommends \
+    openssh-server
+
+
 # INSTALL PYTHON PACKAGES
 RUN python3 -m pip install --upgrade pip
 COPY requirements.txt /tmp/requirements.txt

@@ -4,43 +4,43 @@ stages:
     cmd: python get_data.py
     deps:
     - path: get_data.py
-      md5: fd840a17155513103a1df63accd45ae7
+      md5: 7c59b1b3c1367fb186bfc531e6336b27
       size: 603
     outs:
     - path: dataset/test_features.csv
-      md5: fc4efd8a88439c94b2e1e0aea9207df0
-      size: 127751
+      md5: 521860f3bc5a91e9a8932a79e3accc34
+      size: 127761
     - path: dataset/test_labels.csv
-      md5: 04b0f79abf6c578f428ca472e5349ad9
+      md5: 47029180957f78925fdfc98eafc330c2
       size: 6500
     - path: dataset/train_features.csv
-      md5: cc9b1011c647b839daccc0f216411788
-      size: 383206
+      md5: 1d0a464d72e294b602758e544d134164
+      size: 383275
     - path: dataset/train_labels.csv
-      md5: 3ed0f0b46481d277081f3aa752206b99
+      md5: 5c8d3c4b87571f3f8ad789b98c00f2b9
       size: 19500
   train:
     cmd: python train.py
     deps:
     - path: dataset/test_features.csv
-      md5: fc4efd8a88439c94b2e1e0aea9207df0
-      size: 127751
+      md5: 521860f3bc5a91e9a8932a79e3accc34
+      size: 127761
     - path: dataset/test_labels.csv
-      md5: 04b0f79abf6c578f428ca472e5349ad9
+      md5: 47029180957f78925fdfc98eafc330c2
       size: 6500
     - path: dataset/train_features.csv
-      md5: cc9b1011c647b839daccc0f216411788
-      size: 383206
+      md5: 1d0a464d72e294b602758e544d134164
+      size: 383275
     - path: dataset/train_labels.csv
-      md5: 3ed0f0b46481d277081f3aa752206b99
+      md5: 5c8d3c4b87571f3f8ad789b98c00f2b9
       size: 19500
     - path: train.py
       md5: 6f8f0aaacf01d0e42611a407d72fb38a
       size: 789
     outs:
     - path: metrics.json
-      md5: 7926eb1314c9907a89b226d3927233b7
+      md5: 727217aaa8223db08921d76c14182e62
       size: 21
     - path: plot.png
-      md5: e7fb88ae0ec41ad2fcaaad34cbc09479
-      size: 17046
+      md5: 1ec63f3b6d37b83189e28a082b2da1e0
+      size: 16900

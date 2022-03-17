@@ -1,5 +1,3 @@
 [core]
     remote = local_remote
-['remote "example_cml"']
-    url = ssh://data@localhost/home/data/example_cml
-    keyfile = data_key
+    autostage = true
